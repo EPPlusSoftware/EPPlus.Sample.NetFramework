@@ -1,15 +1,8 @@
 # EPPlus samples
 
-### EPPlus samples for .Net Core
+### EPPlus samples for .NET Framework
 
-Solution can be opened in Visual Studio for Windows or MacOS. On other operation systems please use...
-
-```
-dotnet restore
-dotnet run
-```
-
-... to execute the samples.
+Solution can be opened in Visual Studio for Windows.
 
 |No|Sample|Description|
 |---|---|-----------------|
@@ -37,21 +30,5 @@ dotnet run
 
 ### Output files
 The samples above produces some workbooks - the name of each workbook indicates which sample that generated it. These workbooks are located in a subdirectory - named "SampleApp" - to the output directory of the sample project.
-
-
-### Non windows operating systems.
-Non-windows operating systems will requires libgdiplus to be installed. 
-Please use your favorite package manager to install it. 
-For example:
-
-Homebrew on MacOS:
-```
-brew install mono-libgdiplus
-```
-
-apt-get:
-```
-apt-get install libgdiplus
-```
 
 Also see wiki on https://github.com/JanKallman/EPPlus/wiki for more details
