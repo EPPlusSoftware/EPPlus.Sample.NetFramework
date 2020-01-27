@@ -31,4 +31,4 @@ Solution can be opened in Visual Studio for Windows.
 ### Output files
 The samples above produces some workbooks - the name of each workbook indicates which sample that generated it. These workbooks are located in a subdirectory - named "SampleApp" - to the output directory of the sample project.
 
-Also see wiki on https://github.com/JanKallman/EPPlus/wiki for more details
+Also see wiki on https://github.com/EPPlusSoftware/EPPlus/wiki for more details
