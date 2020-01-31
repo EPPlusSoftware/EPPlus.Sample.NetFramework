@@ -2,7 +2,7 @@
 
 ### EPPlus samples for .NET Framework
 
-Solution can be opened in Visual Studio for Windows.
+The solution can be opened in Visual Studio for Windows.
 
 |No|Sample|Description|
 |---|---|-----------------|
