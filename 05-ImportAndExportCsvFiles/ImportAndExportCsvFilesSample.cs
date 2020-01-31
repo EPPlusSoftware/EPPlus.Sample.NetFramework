@@ -51,7 +51,7 @@ namespace EPPlusSamples.LoadDataFromCsvFilesIntoTables
 
         private static async Task ExportTableAsync(ExcelPackage package)
         {
-            var ws = package.Workbook.Worksheets[1];
+            var ws = package.Workbook.Worksheets[0];
             var tbl = ws.Tables[0];
             var format = new ExcelOutputTextFormat
             {

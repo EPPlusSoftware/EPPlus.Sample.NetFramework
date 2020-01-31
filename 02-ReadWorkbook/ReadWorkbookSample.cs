@@ -28,10 +28,10 @@ namespace EPPlusSamples
 			Console.WriteLine();
 
 			FileInfo existingFile = new FileInfo(filePath);
-			using (ExcelPackage package = new ExcelPackage(existingFile))
+            using (ExcelPackage package = new ExcelPackage(existingFile))
 			{
                 //Get the first worksheet in the workbook
-                ExcelWorksheet worksheet = package.Workbook.Worksheets[1];
+                ExcelWorksheet worksheet = package.Workbook.Worksheets[0];
 
                 int col = 2; //Column 2 is the item description
 				for (int row = 2; row < 5; row++)

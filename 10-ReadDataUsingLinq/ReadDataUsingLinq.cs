@@ -35,7 +35,7 @@ namespace EPPlusSamples
             FileInfo existingFile = FileOutputUtil.GetFileInfo("09-PerformanceAndProtection.xlsx", false);
             using (ExcelPackage package = new ExcelPackage(existingFile))
             {
-                ExcelWorksheet sheet = package.Workbook.Worksheets[1];
+                ExcelWorksheet sheet = package.Workbook.Worksheets[0];
                 
                 //Select all cells in column d between 9990 and 10000
                 var query1= (from cell in sheet.Cells["d:d"] where cell.Value is double && (double)cell.Value >= 9990 && (double)cell.Value <= 10000 select cell);
