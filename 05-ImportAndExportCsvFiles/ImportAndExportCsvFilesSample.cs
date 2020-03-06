@@ -51,7 +51,7 @@ namespace EPPlusSamples.LoadDataFromCsvFilesIntoTables
 
         private static async Task ExportTableAsync(ExcelPackage package)
         {
-            var ws = package.Workbook.Worksheets[0];
+            var ws = package.Workbook.Worksheets[1];
             var tbl = ws.Tables[0];
             var format = new ExcelOutputTextFormat
             {
@@ -122,8 +122,9 @@ namespace EPPlusSamples.LoadDataFromCsvFilesIntoTables
                 var ser = chart.Series.Add(range.Offset(1, col, range.End.Row - 1, 1), range.Offset(1, 0, range.End.Row - 1, 1));
                 ser.HeaderAddress = range.Offset(0, col, 1, 1);
             }
-            
-            chart.StyleManager.SetChartStyle(ePresetChartStyle.AreaChartStyle4, ePresetChartColors.MonochromaticPalette5);
+
+            //Set the style to predefied style 27. You can also use the chart.StyleManager.SetChartStyle method to set more modern styles. See for example the csv2 sheet in this sample. 
+            chart.Style = eChartStyle.Style27;
 
             sheet.View.ShowGridLines = false;
             sheet.Calculate();
@@ -191,7 +192,6 @@ namespace EPPlusSamples.LoadDataFromCsvFilesIntoTables
             //Set the max value for the Y axis...
             chartType2.YAxis.MaxValue = 50;
 
-            //chart.Style = eChartStyle.Style26;
             chart.StyleManager.SetChartStyle(ePresetChartStyle.ComboChartStyle2);
 
             sheet.View.ShowGridLines = false;
