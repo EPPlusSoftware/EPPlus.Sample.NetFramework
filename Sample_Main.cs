@@ -27,7 +27,6 @@ using EPPlusSamples.PerformanceAndProtection;
 using EPPlusSamples.PivotTables;
 using EPPlusSamples.SalesReport;
 using EPPlusSamples.Sparklines;
-using OfficeOpenXml;
 
 namespace EPPlusSamples
 {

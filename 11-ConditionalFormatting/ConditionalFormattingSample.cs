@@ -9,7 +9,7 @@
   Date               Author                       Change
  *************************************************************************************************
   2012-04-03         Eyal Seagull                 Added
-  2020-01-26         Jan Källman & Mats Alm       Initial release EPPlus 5
+  2020-01-26         EPPlus Software AB           Initial release EPPlus 5
  *************************************************************************************************/
 using System;
 using System.Collections.Generic;
