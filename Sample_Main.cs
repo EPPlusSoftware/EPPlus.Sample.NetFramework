@@ -12,6 +12,7 @@
  *************************************************************************************************/
 using System;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Threading.Tasks;
 using EPPlusSampleApp.Core;
@@ -40,6 +41,7 @@ namespace EPPlusSamples
                 //This sample sets the LicenseContext in the appsettings.json file. An alternative is the commented row below.
                 //ExcelPackage.LicenseContext = LicenseContext.NonCommercial;   
                 //See https://epplussoftware.com/Developers/LicenseException for more info.
+                CultureInfo.CurrentCulture = new CultureInfo("zh-tw");
 
                 string connectionStr = "Data Source=EPPlusSample.sqlite;Version=3;";
 
@@ -172,7 +174,7 @@ namespace EPPlusSamples
                 Console.WriteLine("Running sample 19");
                 DrawingsSample.Run();
                 Console.WriteLine("Sample 19 created: {0}", FileOutputUtil.OutputDir.FullName);
-                Console.WriteLine();
+                Console.WriteLine();    
                                
                 //Sample 20
                 //Creates an advanced report on a directory in the filesystem.

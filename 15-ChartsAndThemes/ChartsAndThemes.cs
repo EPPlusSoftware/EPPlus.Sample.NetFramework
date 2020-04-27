@@ -93,8 +93,9 @@ namespace EPPlusSamples
             var ws = package.Workbook.Worksheets.Add("Area chart from template");
             var range = await LoadFromDatabase(connectionString, ws);
 
-            //Add an Area chart from a template file. The crtx file has it's own theme, so it does not change with the theme.
-            var areaChart = (ExcelAreaChart)ws.Drawings.AddChartFromTemplate(FileInputUtil.GetFileInfo("15-ChartsAndThemes", "AreaChartStyle3.crtx"), "areaChart");
+            //Add an Area chart from a template file. The crtx file has it's own theme, so it does not change if you apply another theme.
+            var template = FileInputUtil.GetFileInfo("15-ChartsAndThemes", "AreaChartStyle3.crtx");
+            var areaChart = (ExcelAreaChart)ws.Drawings.AddChartFromTemplate(template, "areaChart");
             var areaSerie = areaChart.Series.Add(ws.Cells[2, 2, 16, 2], ws.Cells[2, 1, 16, 1]);
             areaSerie.Header = "Order Value";
             areaChart.SetPosition(1, 0, 6, 0);
@@ -103,7 +104,6 @@ namespace EPPlusSamples
 
             range.AutoFitColumns(0);
         }
-
         private static void AddScatterChart(ExcelPackage package)
         {
             //Add a scatter chart on the data with one serie per row. 
