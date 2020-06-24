@@ -42,8 +42,8 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.3.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="EPPlus, Version=5.0.4.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
-      <HintPath>packages\EPPlus.5.0.4\lib\net45\EPPlus.dll</HintPath>
+    <Reference Include="EPPlus, Version=5.2.0.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>packages\EPPlus.5.2.0\lib\net45\EPPlus.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
@@ -87,7 +87,20 @@
     <Compile Include="12-DataValidation\DataValidationSample.cs" />
     <Compile Include="13-Filter\FilterSample.cs" />
     <Compile Include="14-ShapesAndImages\ShapesAndImagesSample.cs" />
-    <Compile Include="15-ChartsAndThemes\ChartsAndThemes.cs" />
+    <Compile Include="15-ChartsAndThemes\BoxWhiskerHistogramChartSample.cs" />
+    <Compile Include="15-ChartsAndThemes\ChartSampleBase.cs" />
+    <Compile Include="15-ChartsAndThemes\ChartsAndThemesSample.cs" />
+    <Compile Include="15-ChartsAndThemes\ChartTemplateSample.cs" />
+    <Compile Include="15-ChartsAndThemes\ChartWorksheetSample.cs" />
+    <Compile Include="15-ChartsAndThemes\FunnelChartSample.cs" />
+    <Compile Include="15-ChartsAndThemes\LineChartsSample.cs" />
+    <Compile Include="15-ChartsAndThemes\RadarChartSample.cs" />
+    <Compile Include="15-ChartsAndThemes\RegionMapChartSample.cs" />
+    <Compile Include="15-ChartsAndThemes\ScatterChartSample.cs" />
+    <Compile Include="15-ChartsAndThemes\StockChartSample.cs" />
+    <Compile Include="15-ChartsAndThemes\SunburstAndTreemapChartSample.cs" />
+    <Compile Include="15-ChartsAndThemes\ThreeDimensionalCharts.cs" />
+    <Compile Include="15-ChartsAndThemes\WaterfallChartSample.cs" />
     <Compile Include="16-Sparklines\SparklinesSample.cs" />
     <Compile Include="17-FXReportFromDatabase\FXReportFromDatabase.cs" />
     <Compile Include="18-PivotTables\PivotTablesSample.cs" />
