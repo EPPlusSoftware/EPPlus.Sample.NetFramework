@@ -28,6 +28,7 @@ using EPPlusSamples.PerformanceAndProtection;
 using EPPlusSamples.PivotTables;
 using EPPlusSamples.SalesReport;
 using EPPlusSamples.Sparklines;
+using EPPlusSamples.Comments;
 
 namespace EPPlusSamples
 {
@@ -196,6 +197,11 @@ namespace EPPlusSamples
                 IgnoreErrorsSample.Run();
                 Console.WriteLine("Sample 22 created {0}", FileOutputUtil.OutputDir.Name);
                 Console.WriteLine();
+
+                //Sample 23 - Comments and Threaded comments
+                Console.WriteLine("Running sample 23-Comments/Notes and Threaded Comments");
+                CommentsSample.Run();
+                Console.WriteLine("Sample 23 created {0}", FileOutputUtil.OutputDir.Name);
             }
             catch (Exception ex)
             {
