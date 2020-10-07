@@ -22,13 +22,13 @@ using EPPlusSamples.EncryptionAndProtection;
 using EPPlusSamples.FormulaCalculation;
 using EPPlusSamples.FXReportFromDatabase;
 using EPPlusSamples.LoadDataFromCsvFilesIntoTables;
-using EPPlusSamples.LoadingDataWithTables;
 using EPPlusSamples.OpenWorkbookAddDataAndChart;
 using EPPlusSamples.PerformanceAndProtection;
 using EPPlusSamples.PivotTables;
 using EPPlusSamples.SalesReport;
 using EPPlusSamples.Sparklines;
 using EPPlusSamples.Comments;
+using EPPlusSamples.LoadingData;
 
 namespace EPPlusSamples
 {
@@ -202,6 +202,12 @@ namespace EPPlusSamples
                 Console.WriteLine("Running sample 23-Comments/Notes and Threaded Comments");
                 CommentsSample.Run();
                 Console.WriteLine("Sample 23 created {0}", FileOutputUtil.OutputDir.Name);
+
+                //Sample 24 - Table slicers and Pivot table slicers
+                Console.WriteLine("Running sample 24-Table and Pivot table slicers");
+                SlicerSample.Run(connectionStr);
+                Console.WriteLine("Sample 23 created {0}", FileOutputUtil.OutputDir.Name);
+                Console.WriteLine();
             }
             catch (Exception ex)
             {
