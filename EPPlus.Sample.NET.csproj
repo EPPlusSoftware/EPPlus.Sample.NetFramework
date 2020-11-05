@@ -42,8 +42,8 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.3.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="EPPlus, Version=5.4.0.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
-      <HintPath>packages\EPPlus.5.4.0\lib\net45\EPPlus.dll</HintPath>
+    <Reference Include="EPPlus, Version=5.4.1.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>packages\EPPlus.5.4.1\lib\net45\EPPlus.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -117,6 +117,7 @@
     <Compile Include="22-IgnoreErrors\IgnoreErrorsSample.cs" />
     <Compile Include="23-Comments\CommentsSample.cs" />
     <Compile Include="24-Slicers\SlicerSample.cs" />
+    <Compile Include="25-ImportAndExportDataTable\DataTableSample.cs" />
     <Compile Include="FileInputUtil.cs" />
     <Compile Include="FileOutputUtil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -152,6 +153,7 @@
     <None Include="22-IgnoreErrors\Readme.md" />
     <None Include="23-Comments\Readme.md" />
     <None Include="24-Slicers\Readme.md" />
+    <None Include="25-ImportAndExportDataTable\readme.md" />
     <None Include="App.config" />
     <None Include="EPPlusSample.sqlite">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
