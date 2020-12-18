@@ -208,11 +208,23 @@ namespace EPPlusSamples
                 SlicerSample.Run(connectionStr);
                 Console.WriteLine("Sample 23 created {0}", FileOutputUtil.OutputDir.Name);
                 Console.WriteLine();
+
+                //Sample 25 - Import and Export DataTable
+                Console.WriteLine("Running sample 25 - Import and Export DataTable");
+                DataTableSample.Run(connectionStr);
+                Console.WriteLine("Sample 25 finished.");
+                Console.WriteLine();
+
+                //Sample 26 - Form Controls & Drawing Groups
+                Console.WriteLine("Running sample 26 - Form controls");
+                FormControlsSample.Run();
+                Console.WriteLine("Sample 26 finished.");
+                Console.WriteLine();
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Error: {0}", ex.Message);
-			}
+            }
             var prevColor = Console.ForegroundColor;
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"Genereted sample workbooks can be found in {FileOutputUtil.OutputDir.FullName}");

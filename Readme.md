@@ -27,6 +27,11 @@ The solution can be opened in Visual Studio for Windows.
 |19|[Encryption and protection](/19-EncryptionAndProtection/)|This sample produces a quiz, where the template workbook is encrypted and password protected.|
 |20|[Create filesystem report](/20-CreateFileSystemReport/)|Demonstrates usage of styling, printer settings, rich text, pie-, doughnut- and bar-charts, freeze panes|
 |21|[VBA - Visual Basic for Applications](/21-VBA/)|Demonstrates EPPlus support for VBA, includes a battleship game|
+|22|[Ignore errors](/22-IgnoreErrors/)|Various samples on how to ignore error on cells.|
+|23|[Comments](/23-Comments/)|Sample showing how to add notes and threaded comments.|
+|24|[Slicers](/24-Slicers/)|Sample showing how to add Pivot Table slicers and Tabel slicers
+|25|[Export to/from DataTable](/25-ImportAndExportDataTable)|Sample showing import/export rangedata with System.Data.DataTable
+|26|[Form controls](/26-FormControls)|Sample showing how to add differnt form controls and how to group drawings.
 
 ### Output files
 The samples above produces some workbooks - the name of each workbook indicates which sample that generated it. These workbooks are located in a subdirectory - named "SampleApp" - to the output directory of the sample project.
