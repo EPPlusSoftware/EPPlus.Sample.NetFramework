@@ -166,8 +166,10 @@ namespace EPPlusSamples
                 Console.WriteLine();
 
                 //Sample 18 - Pivottables
-                Console.WriteLine("Running sample 18");
-                output = PivotTablesSample.Run(connectionStr);    //TODO: Fix database
+                //This sample demonstrates how to create and work with pivot tables.
+                output = PivotTablesSample.Run(connectionStr);
+                //The second class demonstrates how to style you pivot table.
+                PivotTablesStylingSample.Run();
                 Console.WriteLine("Sample 18 created {0}", output);
                 Console.WriteLine();
 
@@ -219,6 +221,18 @@ namespace EPPlusSamples
                 Console.WriteLine("Running sample 26 - Form controls");
                 FormControlsSample.Run();
                 Console.WriteLine("Sample 26 finished.");
+                Console.WriteLine();
+
+                //Sample 27 - Custom Named Table, Pivot Table and Slicer styles
+                Console.WriteLine("Running sample 27 - Custom table and slicer styles");
+                CustomTableSlicerStyleSample.Run(connectionStr);
+                Console.WriteLine("Sample 27 finished.");
+                Console.WriteLine();
+
+                //Sample 27 - Custom Named Table, Pivot Table and Slicer styles
+                Console.WriteLine("Running sample 28 - Working with tables");
+                await TablesSample.RunAsync(connectionStr);
+                Console.WriteLine("Sample 28 finished.");
                 Console.WriteLine();
             }
             catch (Exception ex)

@@ -42,11 +42,11 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.3.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="EPPlus, Version=5.5.0.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
-      <HintPath>packages\EPPlus.5.5.0\lib\net45\EPPlus.dll</HintPath>
+    <Reference Include="EPPlus, Version=5.5.5.529, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>packages\EPPlus.5.5.5.529-20210311-develop\lib\net45\EPPlus.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=1.3.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>packages\Microsoft.IO.RecyclableMemoryStream.1.3.6\lib\net46\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=1.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.IO.RecyclableMemoryStream.1.4.1\lib\net46\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -115,6 +115,7 @@
     <Compile Include="16-Sparklines\SparklinesSample.cs" />
     <Compile Include="17-FXReportFromDatabase\FXReportFromDatabase.cs" />
     <Compile Include="18-PivotTables\PivotTablesSample.cs" />
+    <Compile Include="18-PivotTables\PivotTablesStylingSample.cs" />
     <Compile Include="19-EncryptionAndProtection\EncryptionAndProtectionSample.cs" />
     <Compile Include="20-CreateFileSystemReport\CreateAFileSystemReport.cs" />
     <Compile Include="21-VBA\WorkingWithVbaSample.cs" />
@@ -123,6 +124,8 @@
     <Compile Include="24-Slicers\SlicerSample.cs" />
     <Compile Include="25-ImportAndExportDataTable\DataTableSample.cs" />
     <Compile Include="26-FormControls\FormControlsSample.cs" />
+    <Compile Include="27-CustomNamedStyles\TableSlicerStyleSample.cs" />
+    <Compile Include="28-Tables\TablesSample.cs" />
     <Compile Include="FileInputUtil.cs" />
     <Compile Include="FileOutputUtil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -161,6 +164,8 @@
     <None Include="24-Slicers\Readme.md" />
     <None Include="25-ImportAndExportDataTable\Readme.md" />
     <None Include="26-FormControls\Readme.md" />
+    <None Include="27-CustomNamedStyles\Readme.md" />
+    <None Include="28-Tables\Readme.md" />
     <None Include="App.config" />
     <None Include="EPPlusSample.sqlite">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

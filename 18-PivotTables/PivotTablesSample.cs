@@ -108,6 +108,8 @@ namespace EPPlusSamples.PivotTables
             var rowField = pivotTable2.RowFields.Add(pivotTable2.Fields["OrderDate"]);
             //This is a date field so we want to group by Years and quaters. This will create one additional field for years.
             rowField.AddDateGrouping(eDateGroupBy.Years | eDateGroupBy.Quarters);
+            rowField.Name = "Quarters"; //We rename the field OrderDate to Quarters.
+
             //Get the Quaters field and change the texts
             var quaterField = pivotTable2.Fields.GetDateGroupField(eDateGroupBy.Quarters);
             quaterField.Items[0].Text = "<"; //Values below min date, but we use auto so its not used
@@ -212,7 +214,7 @@ namespace EPPlusSamples.PivotTables
             var pivotTable4 = wsPivot4.PivotTables.Add(wsPivot4.Cells["A3"], pivotCache, "PerWithCalculatedField");
 
             pivotTable4.RowFields.Add(pivotTable4.Fields["CompanyName"]);
-            pivotTable4.RowFields.Add(pivotTable4.Fields["OrderDate"]);
+            //Be careful with formulas as they are not validated and can cause the pivot table to become corrupt. 
 
             //Be careful with formulas as they can cause the pivot table to become corrupt if they are entered invalidly.
             var calcField = pivotTable4.Fields.AddCalculatedField("Total", "'OrderValue'+'Tax'+'Freight'");
