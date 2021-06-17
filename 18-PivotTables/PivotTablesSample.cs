@@ -69,14 +69,17 @@ namespace EPPlusSamples.PivotTables
                 var pt3 = CreatePivotTableWithPageFilter(pck, pt2.CacheDefinition);
                 var pt4 = CreatePivotTableWithASlicer(pck, pt2.CacheDefinition);
                 var pt5 = CreatePivotTableWithACalculatedField(pck, pt2.CacheDefinition);
-
-                //Filter samples
                 var pt6 = CreatePivotTableCaptionFilter(pck, dataRange);
+                var pt7 = CreatePivotTableWithDataFieldsUsingShowAs(pck, dataRange);
+                
+                CreatePivotTableSorting(pck, dataRange);
 
                 pck.Save();
             }
             return newFile.FullName;
         }
+
+
         private static ExcelPivotTable CreatePivotTableWithPivotChart(ExcelPackage pck, ExcelRangeBase dataRange)
         {
             var wsPivot = pck.Workbook.Worksheets.Add("PivotSimple");
@@ -273,6 +276,96 @@ namespace EPPlusSamples.PivotTables
             pivotTable4.DataOnRows = false;
             return pivotTable4;
         }
+        private static ExcelPivotTable CreatePivotTableWithDataFieldsUsingShowAs(ExcelPackage pck, ExcelRangeBase dataRange)
+        {
+            var wsPivot5 = pck.Workbook.Worksheets.Add("PivotWithShowAsFields");
+
+            //Create a new pivot table with a new cache.
+            var pivotTable5 = wsPivot5.PivotTables.Add(wsPivot5.Cells["A3"], dataRange, "WithCaptionFilter");
+
+            var rowField1 = pivotTable5.RowFields.Add(pivotTable5.Fields["CompanyName"]);
+            var rowField2 = pivotTable5.RowFields.Add(pivotTable5.Fields["Name"]);
+            var colField1 = pivotTable5.ColumnFields.Add(pivotTable5.Fields["Currency"]);
+
+            //Collapses all row and column fields
+            rowField1.Items.Refresh();
+            rowField1.Items.ShowDetails(false);
+
+            rowField2.Items.Refresh();
+            rowField2.Items.ShowDetails(false);
+
+            colField1.Items.Refresh();
+            colField1.Items.ShowDetails(false);
+
+            //Sets the ∑ Values position within column or row fields collection.
+            //The value of the pivotTable5.DataOnRows will determin if the rowFields or columnsFields collection is used.
+            //A negative or out of range value will add the values to the end of the collection.
+            pivotTable5.DataOnRows = false;
+            pivotTable5.ValuesFieldPosition = 0;    //Set values first in the row fields collection
+
+            var df1 = pivotTable5.DataFields.Add(pivotTable5.Fields["OrderValue"]);
+            df1.Name = "Order value";
+            df1.Format = "#,##0";
+
+            var df2 = pivotTable5.DataFields.Add(pivotTable5.Fields["OrderValue"]);
+            df2.Name = "Order value % of total";
+            df2.ShowDataAs.SetPercentOfColumn();
+            df2.Format = "0.0%;";
+            
+            var df3 = pivotTable5.DataFields.Add(pivotTable5.Fields["OrderValue"]);
+            df3.Name = "Count Difference From Previous";
+            df3.ShowDataAs.SetDifference(rowField1, ePrevNextPivotItem.Previous);
+            df3.Function = DataFieldFunctions.Count;
+            df3.Format = "#,##0";
+            
+            pivotTable5.SetCompact(false);
+            pivotTable5.ColumnHeaderCaption = "Data";
+            pivotTable5.ShowColumnStripes = true;            
+            wsPivot5.Column(1).Width = 30;
+
+            return pivotTable5;
+        }
+        private static void CreatePivotTableSorting(ExcelPackage pck, ExcelRangeBase dataRange)
+        {
+            var wsPivot = pck.Workbook.Worksheets.Add("PivotSorting");
+
+            //Sort by the row field
+            var pt1 = wsPivot.PivotTables.Add(wsPivot.Cells["A1"], dataRange, "PerCountrySorted");
+            pt1.DataOnRows = true;
+
+            var rowField1 = pt1.RowFields.Add(pt1.Fields["Country"]);
+            rowField1.Sort = eSortType.Ascending;
+            var dataField = pt1.DataFields.Add(pt1.Fields["OrderValue"]);
+            dataField.Format = "#,##0";
+
+
+            //Sort by the datafield field
+            var pt2 = wsPivot.PivotTables.Add(wsPivot.Cells["D1"], dataRange, "PerCountrySortedByData");
+            pt2.DataOnRows = true;
+
+            rowField1 = pt2.RowFields.Add(pt2.Fields["Country"]);
+            dataField = pt2.DataFields.Add(pt2.Fields["OrderValue"]);
+            dataField.Format = "#,##0";
+            rowField1.SetAutoSort(dataField, eSortType.Descending);
+
+
+            //Sort by the data field for a specific column using pivot areas.
+            //In this case we sort on the order value column for "Poland". 
+            var pt3 = wsPivot.PivotTables.Add(wsPivot.Cells["G1"], dataRange, "PerCountrySortedByDataColumn");
+            pt3.DataOnRows = true;
+
+            rowField1 = pt3.RowFields.Add(pt3.Fields["Name"]);
+            var columnField1 = pt3.ColumnFields.Add(pt3.Fields["Country"]);
+            dataField = pt3.DataFields.Add(pt3.Fields["OrderValue"]);
+            dataField.Format = "#,##0";
+            rowField1.SetAutoSort(dataField, eSortType.Ascending);
+
+            var conditionField = rowField1.AutoSort.Conditions.Fields.Add(columnField1);
+            //Before setting a reference to a value column we need to refresh the items cache.
+            columnField1.Items.Refresh();
+            conditionField.Items.AddByValue("Poland");
+        }
+
         private static List<SalesDTO> GetDataFromSQL(string connectionStr)
         {
             var ret = new List<SalesDTO>();

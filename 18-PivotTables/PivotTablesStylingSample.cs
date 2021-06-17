@@ -53,9 +53,39 @@ namespace EPPlusSamples.PivotTables
                 //Sets the pivot table into tabular mode to display the filter boxes on the row fields then styles the button fields
                 StylePivotTable6_CaptionFilter(pck);
 
+                //Sets column fields to different background colors.
+                StylePivotTable7_WithDataFieldsUsingShowAs(pck);
+                
+                StylePivotTable8_Sort(pck);
                 pck.Save();
             }
             return newFile.FullName;
+        }
+
+        private static void StylePivotTable8_Sort(ExcelPackage pck)
+        {
+            var wsPivot = pck.Workbook.Worksheets["PivotSorting"];
+
+            //Mark the sorted ranges
+            var pt1 = wsPivot.PivotTables[0];
+            var style1 = pt1.Styles.AddLabel(pt1.RowFields[0]);
+            style1.Style.Border.BorderAround(ExcelBorderStyle.DashDotDot,Color.Red);
+            
+            //Set color red for data cells q
+            var pt2 = wsPivot.PivotTables[1];
+            var style2 = pt2.Styles.AddAllData();
+            style2.GrandColumn = true;
+            style2.Style.Font.Color.SetColor(Color.Red);
+            
+            //Mark sorted column with value "Poland"
+            var pt3 = wsPivot.PivotTables[2];
+            var style3 = pt3.Styles.AddData(pt3.RowFields[0]);      //Add style for Row field "Name"
+            style3.Conditions.DataFields.Add(pt3.DataFields[0]);    //..then add a condition for data field "Order Value" and...
+            var conditions = style3.Conditions.Fields.Add(pt3.ColumnFields[0]); //...column field Country with value...
+            //pt3.ColumnFields[0].Items.Refresh();
+            conditions.Items.AddByValue("Poland");  //..."Poland""..
+            style3.Style.Font.Color.SetColor(Color.Green);
+
         }
 
         private static void StylePivotTable1_PerCountry(ExcelPackage pck)
@@ -239,6 +269,42 @@ namespace EPPlusSamples.PivotTables
 
             var style2 = pivotTable6.Styles.AddButtonField(ePivotTableAxis.RowAxis, 1); //Field with index 1 in the row axis.
             style2.Style.Font.Color.SetColor(eThemeSchemeColor.Accent4);
+        }
+        private static void StylePivotTable7_WithDataFieldsUsingShowAs(ExcelPackage pck)
+        {
+            var wsPivot7 = pck.Workbook.Worksheets["PivotWithShowAsFields"];
+            var pivotTable7 = wsPivot7.PivotTables[0];
+
+            pivotTable7.PivotTableStyle = PivotTableStyles.Dark18;
+
+            var styleUSD=pivotTable7.Styles.AddData(pivotTable7.Fields["Currency"]);
+            styleUSD.Conditions.Fields[0].Items.AddByValue("USD");
+            styleUSD.Style.Fill.PatternType = ExcelFillStyle.Solid;            
+            styleUSD.Style.Fill.BackgroundColor.Tint = -0.9;
+
+            var styleEUR = pivotTable7.Styles.AddData(pivotTable7.Fields["Currency"]);
+            styleEUR.Conditions.Fields[0].Items.AddByValue("EUR");
+            styleEUR.Style.Fill.PatternType = ExcelFillStyle.Solid;
+            styleEUR.Style.Fill.BackgroundColor.Tint = -0.85;
+
+            var styleSEK = pivotTable7.Styles.AddData(pivotTable7.Fields["Currency"]);
+            styleSEK.Conditions.Fields[0].Items.AddByValue("SEK");
+            styleSEK.Style.Fill.PatternType = ExcelFillStyle.Solid;
+            styleSEK.Style.Fill.BackgroundColor.Tint = -0.80;
+
+            var styleDKK = pivotTable7.Styles.AddData(pivotTable7.Fields["Currency"]);
+            styleDKK.Conditions.Fields[0].Items.AddByValue("DKK");
+            styleDKK.Style.Fill.PatternType = ExcelFillStyle.Solid;
+            styleDKK.Style.Fill.BackgroundColor.Tint = -0.75;
+
+            var styleINR = pivotTable7.Styles.AddData(pivotTable7.Fields["Currency"]);
+            styleINR.Conditions.Fields[0].Items.AddByValue("INR");
+            styleINR.Style.Fill.PatternType = ExcelFillStyle.Solid;
+            styleINR.Style.Fill.BackgroundColor.Tint = -0.70;
+
+            var styleTotal = pivotTable7.Styles.AddData(pivotTable7.Fields["Currency"]);
+            styleTotal.GrandRow = true;
+            styleTotal.Style.Fill.BackgroundColor.Tint = -1;
         }
     }
 }

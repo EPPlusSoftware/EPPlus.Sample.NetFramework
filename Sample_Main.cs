@@ -234,6 +234,18 @@ namespace EPPlusSamples
                 await TablesSample.RunAsync(connectionStr);
                 Console.WriteLine("Sample 28 finished.");
                 Console.WriteLine();
+
+                //Sample 29 - Add references to external workbooks
+                Console.WriteLine("Running sample 29 - External Links");
+                ExternalLinksSample.Run();
+                Console.WriteLine("Sample 29 finished.");
+                Console.WriteLine();
+
+                // Sample 30 - Sort ranges
+                Console.WriteLine("Running sample 30 - Sort ranges");
+                SortingRangesSample.Run();
+                Console.WriteLine("Sample 30 finished.");
+                Console.WriteLine();
             }
             catch (Exception ex)
             {
