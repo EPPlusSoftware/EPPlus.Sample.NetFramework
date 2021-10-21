@@ -20,7 +20,7 @@ namespace EPPlusSamples.Comments
                 // Threaded comments
                 var sheet2 = package.Workbook.Worksheets.Add("ThreadedComments");
                 AddAndReadThreadedComments(sheet2);
-                package.SaveAs(FileOutputUtil.GetFileInfo("23-Comments.xlsx"));
+                package.SaveAs(FileUtil.GetCleanFileInfo("23-Comments.xlsx"));
             }
         }
 
@@ -134,7 +134,7 @@ namespace EPPlusSamples.Comments
             // remove the comment
             thread2.Remove(c);
             if (thread2.Comments.Count == 0)
-                Console.WriteLine("B1 is now empty");
+                Console.WriteLine("Thread is now empty");
         }
     }
 }

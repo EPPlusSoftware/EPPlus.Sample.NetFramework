@@ -23,12 +23,12 @@ namespace EPPlusSamples
 	{
 		public static void Run()
 		{
-            var filePath = FileInputUtil.GetFileInfo("02-ReadWorkbook", "ReadWorkbook.xlsx").FullName;
+            var filePath = FileUtil.GetFileInfo("02-ReadWorkbook", "ReadWorkbook.xlsx").FullName;
 			Console.WriteLine("Reading column 2 of {0}", filePath);
 			Console.WriteLine();
 
 			FileInfo existingFile = new FileInfo(filePath);
-            using (ExcelPackage package = new ExcelPackage(existingFile))
+			using (ExcelPackage package = new ExcelPackage(existingFile))
 			{
                 //Get the first worksheet in the workbook
                 ExcelWorksheet worksheet = package.Workbook.Worksheets[0];

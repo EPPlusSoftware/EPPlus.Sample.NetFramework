@@ -47,7 +47,7 @@ namespace EPPlusSamples
                 string connectionStr = "Data Source=EPPlusSample.sqlite;Version=3;";
 
                 //Set the output directory to the SampleApp folder where the app is running from. 
-                FileOutputUtil.OutputDir = new DirectoryInfo($"{AppDomain.CurrentDomain.BaseDirectory}SampleApp");
+                FileUtil.OutputDir = new DirectoryInfo($"{AppDomain.CurrentDomain.BaseDirectory}SampleApp");
 
                 // Sample 1 - simply creates a new workbook from scratch
                 // containing a worksheet that adds a few numbers together 
@@ -65,13 +65,13 @@ namespace EPPlusSamples
                 //Sample 3 - Load and save using async methods
                 Console.WriteLine("Running sample 3-Async-Await");
                 await UsingAsyncAwaitSample.RunAsync(connectionStr);
-                Console.WriteLine("Sample 3 created {0}", FileOutputUtil.OutputDir.Name);
+                Console.WriteLine("Sample 3 created {0}", FileUtil.OutputDir.Name);
                 Console.WriteLine();
 
                 //Sample 4 - Shows a few ways to load data (Datatable, IEnumerable and more).
                 Console.WriteLine("Running sample 4");
                 LoadingDataWithTablesSample.Run();
-                Console.WriteLine("Sample 4 created {0}", FileOutputUtil.OutputDir.Name);
+                Console.WriteLine("Sample 4 created {0}", FileUtil.OutputDir.Name);
                 Console.WriteLine();
 
                 //Sample 5 Loads two csv files into tables and creates an area chart and a Column/Line chart on the data.
@@ -84,7 +84,7 @@ namespace EPPlusSamples
                 //Sample 6 Calculate - Shows how to calculate formulas in the workbook.
                 Console.WriteLine("Sample 6 - Calculate formulas");
                 CalculateFormulasSample.Run();
-                Console.WriteLine("Sample 6 created {0}", FileOutputUtil.OutputDir.Name);
+                Console.WriteLine("Sample 6 created {0}", FileUtil.OutputDir.Name);
                 Console.WriteLine();
 
                 //Sample 7
@@ -118,7 +118,7 @@ namespace EPPlusSamples
                 //Sample 11 - Conditional Formatting
                 Console.WriteLine("Running sample 11");
                 ConditionalFormatting.Run();
-                Console.WriteLine("Sample 11 created {0}", FileOutputUtil.OutputDir.Name);
+                Console.WriteLine("Sample 11 created {0}", FileUtil.OutputDir.Name);
                 Console.WriteLine();
 
                 //Sample 12 - Data validation
@@ -130,32 +130,32 @@ namespace EPPlusSamples
                 //Sample 13 - Filter
                 Console.WriteLine("Running sample 13-Filter");
                 await Filter.RunAsync(connectionStr);
-                Console.WriteLine("Sample 13 created {0}", FileOutputUtil.OutputDir.Name);
+                Console.WriteLine("Sample 13 created {0}", FileUtil.OutputDir.Name);
                 Console.WriteLine();
 
                 //Sample 14 - Shapes & Images
                 Console.WriteLine("Running sample 14-Shapes & Images");
                 ShapesAndImagesSample.Run();
-                Console.WriteLine("Sample 14 created {0}", FileOutputUtil.OutputDir.Name);
+                Console.WriteLine("Sample 14 created {0}", FileUtil.OutputDir.Name);
                 Console.WriteLine();
 
                 //Sample 15 - Themes and Chart styling
                 Console.WriteLine("Running sample 15-Theme and Chart styling");
                 //Run the sample with the default office theme
                 await ChartsAndThemesSample.RunAsync(connectionStr,
-                                                     FileOutputUtil.GetFileInfo("15-ChartsAndThemes.xlsx"), null);
+                                                     FileUtil.GetFileInfo("15-ChartsAndThemes.xlsx"), null);
                 
                 //Run the sample with the integral theme. Themes can be exported as thmx files from Excel and can then be applied to a package.
                 await ChartsAndThemesSample.RunAsync(connectionStr,
-                                                     FileOutputUtil.GetFileInfo("15-ChartsAndThemes-IntegralTheme.xlsx"),
-                                                     FileInputUtil.GetFileInfo("15-ChartsAndThemes", "integral.thmx"));
-                Console.WriteLine("Sample 15 created {0}", FileOutputUtil.OutputDir.Name);
+                                                     FileUtil.GetFileInfo("15-ChartsAndThemes-IntegralTheme.xlsx"),
+                                                     FileUtil.GetFileInfo("15-ChartsAndThemes", "integral.thmx"));
+                Console.WriteLine("Sample 15 created {0}", FileUtil.OutputDir.Name);
                 Console.WriteLine();
 
                 //Sample 16 - Shows how to add sparkline charts.
                 Console.WriteLine("Running sample 16-Sparklines");
                 SparkLinesSample.Run();
-                Console.WriteLine("Sample 16 created {0}", FileOutputUtil.OutputDir.Name);
+                Console.WriteLine("Sample 16 created {0}", FileUtil.OutputDir.Name);
                 Console.WriteLine();
 
                 // Sample 17 - Creates a workbook based on a template.
@@ -176,7 +176,7 @@ namespace EPPlusSamples
                 //Sample 19 Swedish Quiz : Shows Encryption, workbook- and worksheet protection.
                 Console.WriteLine("Running sample 19");
                 DrawingsSample.Run();
-                Console.WriteLine("Sample 19 created: {0}", FileOutputUtil.OutputDir.FullName);
+                Console.WriteLine("Sample 19 created: {0}", FileUtil.OutputDir.FullName);
                 Console.WriteLine();    
                                
                 //Sample 20
@@ -191,24 +191,24 @@ namespace EPPlusSamples
                 //Sample 21 - Shows how to work with macro-enabled workbooks(VBA).
                 Console.WriteLine("Running sample 21-VBA");
                 WorkingWithVbaSample.Run();
-                Console.WriteLine("Sample 21 created {0}", FileOutputUtil.OutputDir.Name);
+                Console.WriteLine("Sample 21 created {0}", FileUtil.OutputDir.Name);
                 Console.WriteLine();
 
                 //Sample 22 - Ignore cell errors using the IngnoreErrors Collection
                 Console.WriteLine("Running sample 22-Suppress Errors");
                 IgnoreErrorsSample.Run();
-                Console.WriteLine("Sample 22 created {0}", FileOutputUtil.OutputDir.Name);
+                Console.WriteLine("Sample 22 created {0}", FileUtil.OutputDir.Name);
                 Console.WriteLine();
 
                 //Sample 23 - Comments and Threaded comments
                 Console.WriteLine("Running sample 23-Comments/Notes and Threaded Comments");
                 CommentsSample.Run();
-                Console.WriteLine("Sample 23 created {0}", FileOutputUtil.OutputDir.Name);
+                Console.WriteLine("Sample 23 created {0}", FileUtil.OutputDir.Name);
 
                 //Sample 24 - Table slicers and Pivot table slicers
                 Console.WriteLine("Running sample 24-Table and Pivot table slicers");
                 SlicerSample.Run(connectionStr);
-                Console.WriteLine("Sample 23 created {0}", FileOutputUtil.OutputDir.Name);
+                Console.WriteLine("Sample 23 created {0}", FileUtil.OutputDir.Name);
                 Console.WriteLine();
 
                 //Sample 25 - Import and Export DataTable
@@ -241,8 +241,10 @@ namespace EPPlusSamples
                 Console.WriteLine("Sample 29 finished.");
                 Console.WriteLine();
 
-                // Sample 30 - Sort ranges
-                Console.WriteLine("Running sample 30 - Sort ranges");
+                // Sample 30 - Working with ranges
+                Console.WriteLine("Running sample 30 - Working with ranges");
+                CopyRangeSample.Run();
+                FillRangeSample.Run();
                 SortingRangesSample.Run();
                 Console.WriteLine("Sample 30 finished.");
                 Console.WriteLine();
@@ -253,11 +255,11 @@ namespace EPPlusSamples
             }
             var prevColor = Console.ForegroundColor;
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine($"Genereted sample workbooks can be found in {FileOutputUtil.OutputDir.FullName}");
+            Console.WriteLine($"Genereted sample workbooks can be found in {FileUtil.OutputDir.FullName}");
             Console.ForegroundColor = prevColor;
 
             //Open the output folder
-            Process.Start(FileOutputUtil.OutputDir.FullName);
+            Process.Start(FileUtil.OutputDir.FullName);
             
             Console.WriteLine();
 			Console.WriteLine("Press the return key to exit...");

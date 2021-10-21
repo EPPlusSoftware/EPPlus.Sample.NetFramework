@@ -24,7 +24,7 @@ namespace EPPlusSamples
         /// </summary>
         public static string Run()
         {
-            using (var package = new ExcelPackage())
+			using (var package = new ExcelPackage())
             {
                 //Add a new worksheet to the empty workbook
                 var worksheet = package.Workbook.Worksheets.Add("Inventory");
@@ -54,7 +54,7 @@ namespace EPPlusSamples
                 //Add a formula for the value-column
                 worksheet.Cells["E2:E4"].Formula = "C2*D2";
 
-                //Ok now format the values;
+                //Ok now format the values
                 using (var range = worksheet.Cells[1, 1, 1, 5]) 
                 {
                     range.Style.Font.Bold = true;
@@ -110,7 +110,7 @@ namespace EPPlusSamples
                 package.Workbook.Properties.SetCustomPropertyValue("Checked by", "Jan Källman");
                 package.Workbook.Properties.SetCustomPropertyValue("AssemblyName", "EPPlus");
 
-                var xlFile = FileOutputUtil.GetFileInfo("01-GettingStarted.xlsx");
+                var xlFile = FileUtil.GetCleanFileInfo("01-GettingStarted.xlsx");
                 
                 // Save our new workbook in the output directory and we are done!
                 package.SaveAs(xlFile);
