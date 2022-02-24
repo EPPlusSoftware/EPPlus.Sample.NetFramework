@@ -184,7 +184,7 @@ namespace EPPlusSamples
                 //Parameter 2 is the directory to report. Parameter 3 is how deep the scan will go. Parameter 4 Skips Icons if set to true (The icon handling is slow)
                 //This example demonstrates how to use outlines, tables,comments, shapes, pictures and charts.                
                 Console.WriteLine("Running sample 20");
-                output = CreateAFileSystemReport.Run(new DirectoryInfo(System.Reflection.Assembly.GetEntryAssembly().Location).Parent, 5, true);
+                output = CreateAFileSystemReport.Run(new DirectoryInfo(System.Reflection.Assembly.GetEntryAssembly().Location).Parent, 5, false);
                 Console.WriteLine("Sample 20 created:", output);
                 Console.WriteLine();
 

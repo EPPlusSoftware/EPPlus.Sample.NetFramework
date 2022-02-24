@@ -440,6 +440,8 @@ namespace EPPlusSamples.CreateFileSystemReport
                     if (fileIcon != null)
                     {
                         ExcelPicture pic = ws.Drawings.AddPicture("pic" + (row).ToString(), fileIcon);
+                        pic.Border.Width = 1;
+                        pic.Border.LineStyle = eLineStyle.Solid;
                         pic.SetPosition((int)20 * (row - 1) + 2, 0);
                     }
                 }
