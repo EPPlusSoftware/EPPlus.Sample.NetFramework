@@ -35,7 +35,9 @@ The solution can be opened in Visual Studio for Windows.
 |27|[Custom styles for tables and slicers](/27-CustomNamedStyles)|Sample showing how to create custom styles from tables, pivot tables and slicers.
 |28|[Tables](/28-Tables)|Sample showing how to work with tables.
 |29|[External links](/29-ExternalLinks)|Shows how to work with links to external workbooks
-|30|[Sorting Ranges](/30-SortingRanges)|Shows how to work with the Sort method for ranges and tables
+|30|[Sorting Ranges](/30-WorkingWithRanges)|Shows how to work with the Sort method for ranges and tables
+|31|[Html Export](/31-HtmlExport)|Shows how to export tables and ranges to HTML
+|32|[Json Export](/32-JsonExport)|Shows how to export tables and ranges to JSON
 
 ### Output files
 The samples above produces some workbooks - the name of each workbook indicates which sample that generated it. These workbooks are located in a subdirectory - named "SampleApp" - to the output directory of the sample project.

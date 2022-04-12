@@ -43,7 +43,7 @@ namespace EPPlusSamples.SalesReport
                 using (ExcelRange r = worksheet.Cells["A1:G1"])
                 {
                     r.Merge = true;
-                    r.Style.Font.SetFromFont(new Font("Britannic Bold", 22, FontStyle.Italic));
+                    r.Style.Font.SetFromFont("Britannic Bold", 22, false, true);
                     r.Style.Font.Color.SetColor(Color.White);
                     r.Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.CenterContinuous;
                     r.Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.Solid;
@@ -53,7 +53,7 @@ namespace EPPlusSamples.SalesReport
                 using (ExcelRange r = worksheet.Cells["A2:G2"])
                 {
                     r.Merge = true;
-                    r.Style.Font.SetFromFont(new Font("Britannic Bold", 18, FontStyle.Italic));
+                    r.Style.Font.SetFromFont("Britannic Bold", 18, false, true);
                     r.Style.Font.Color.SetColor(Color.Black);
                     r.Style.HorizontalAlignment = ExcelHorizontalAlignment.CenterContinuous;
                     r.Style.Fill.PatternType = ExcelFillStyle.Solid;
@@ -112,8 +112,8 @@ namespace EPPlusSamples.SalesReport
                             worksheet.Cells[startRow, 6, row - 1, 6].Style.Numberformat.Format = "[$$-409]#,##0";
 
                             //Set column width
-                            worksheet.Columns[1].Width = 35;
-                            worksheet.Columns[2, 3].Width = 28;
+                            worksheet.Columns[1,3].Width = 35;
+                            worksheet.Columns[2].Width = 28;
                             worksheet.Columns[4].Width = 10;
                             worksheet.Columns[5, 7].Width = 12;
                         }
