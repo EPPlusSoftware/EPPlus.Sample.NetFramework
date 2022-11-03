@@ -188,9 +188,10 @@ namespace EPPlusSamples
                 Console.WriteLine("Sample 20 created:", output);
                 Console.WriteLine();
 
-                //Sample 21 - Shows how to work with macro-enabled workbooks(VBA).
+                //Sample 21 - Shows how to work with macro-enabled workbooks(VBA) and how to sign the code with a certificate.
                 Console.WriteLine("Running sample 21-VBA");
                 WorkingWithVbaSample.Run();
+                SigningYourVBAProject.Run();
                 Console.WriteLine("Sample 21 created {0}", FileUtil.OutputDir.Name);
                 Console.WriteLine();
 
@@ -264,6 +265,14 @@ namespace EPPlusSamples
                 Console.WriteLine("Running sample 32 - json export");
                 await JsonExportSample.RunAsync();
                 Console.WriteLine("Sample 32 finished.");
+                Console.WriteLine();
+
+                // Sample 33 - ToCollection and ToCollectionWithMappings
+                // This sample shows how to export data from a worksheet
+                // to a IEnumerable<T> where T is a class.
+                Console.WriteLine("Running sample 33 - ToCollection and ToCollectionWithMappings");
+                ToCollectionSample.Run();
+                Console.WriteLine("Sample 33 finished.");
                 Console.WriteLine();
             }
             catch (Exception ex)
